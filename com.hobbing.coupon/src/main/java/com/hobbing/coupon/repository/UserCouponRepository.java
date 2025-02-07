@@ -1,8 +1,6 @@
 package com.hobbing.coupon.repository;
 
-import com.hobbing.coupon.model.Coupon;
 import com.hobbing.coupon.model.UserCoupon;
-import com.hobbing.coupon.model.CouponStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
