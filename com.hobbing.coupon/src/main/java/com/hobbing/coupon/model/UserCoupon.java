@@ -27,9 +27,13 @@ public class UserCoupon {
     private UUID userId;
 
     @ManyToOne
-    @JoinColumn(name = "coupon_id", nullable = false)
+    @JoinColumn(name = "coupon_id", nullable = false, insertable = false, updatable = false)
     private Coupon coupon;
-    
+
+    @Column(name = "coupon_id", nullable = false)
+    private UUID couponId;
+
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private CouponStatus status;  // 상태: ACTIVE, USED, EXPIRED

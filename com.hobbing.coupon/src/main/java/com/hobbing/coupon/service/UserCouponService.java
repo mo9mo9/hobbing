@@ -77,9 +77,6 @@ public class UserCouponService {
     // 쿠폰 복원
     @Transactional
     public void restoreCoupon(UUID userId, UUID couponId) {
-        Coupon coupon = couponRepository.findById(couponId) // Coupon 객체 조회
-                .orElseThrow(() -> new CustomException(CommonErrorCode.COUPON_NOT_FOUND));
-
         UserCoupon userCoupon = userCouponRepository.findByUserIdAndCouponId(userId, couponId)
                 .orElseThrow(() -> new CustomException(CommonErrorCode.COUPON_NOT_FOUND));
 
@@ -88,9 +85,10 @@ public class UserCouponService {
         }
 
         userCoupon.restore();
-
         userCouponRepository.save(userCoupon);
     }
+
+
 
     // 만료된 쿠폰 비활성화
     @Transactional
